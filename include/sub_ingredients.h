@@ -11,7 +11,7 @@ class drived_class_name: public Ingredient\
     public:\
     drived_class_name(size_t units) : Ingredient{price_unit, units}\
     {\
-        this->name = typeid(*this).name() + 1;\
+        this->name = #drived_class_name;\
     }\
     virtual std::string get_name() {return this->name;}\
 };
