@@ -6,7 +6,7 @@
 
 
 #define DEFCLASS(drived_class_name,price_unit)\
-class drived_class_name: protected Ingredient\
+class drived_class_name: public Ingredient\
 { \
     public:\
     drived_class_name(size_t units) : Ingredient{price_unit, units}\
