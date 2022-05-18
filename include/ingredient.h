@@ -9,6 +9,7 @@ public:
     virtual std::string get_name() = 0; 
     double price() {return units * price_unit;}
     
+    
 
 protected:
     Ingredient(double _price_unit, size_t _units)

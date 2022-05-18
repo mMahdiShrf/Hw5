@@ -16,7 +16,7 @@ public:
     std::vector<Ingredient*>& get_ingredients();
     void operator=(EspressoBased& esp);
 
-    ~EspressoBased();
+    virtual ~EspressoBased();
 
 protected:
     EspressoBased();

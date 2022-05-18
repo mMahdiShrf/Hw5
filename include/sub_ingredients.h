@@ -2,7 +2,7 @@
 #define SUB_INGREDIENTS_H
 
 #include <iostream>
-#include "Ingredient.h"
+#include "ingredient.h"
 
 
 #define DEFCLASS(drived_class_name,price_unit)\
