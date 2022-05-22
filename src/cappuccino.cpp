@@ -4,6 +4,7 @@ Cappuccino::Cappuccino()
 :EspressoBased()
 ,side_items{}
 {   
+    // adding each ingredient to our drink based on it's type
     name = "Cappuccino";
     Milk* milk{new Milk{2}};
     ingredients.push_back(milk);
@@ -16,6 +17,7 @@ Cappuccino::Cappuccino()
 Cappuccino::Cappuccino(const Cappuccino& cap)
 :EspressoBased{cap}
 {
+    // same ass EspressoBased copy constructor we've use conditions
     for(const auto& i : cap.side_items)
     {
         if (i->get_name()=="Cinnamon")
@@ -70,7 +72,7 @@ double Cappuccino::price()
 
 void Cappuccino::add_side_item(Ingredient* side)
 {
-    side_items.push_back(side);
+    side_items.push_back(side); 
 }
 
 std::vector<Ingredient*>& Cappuccino::get_side_items()
@@ -80,6 +82,9 @@ std::vector<Ingredient*>& Cappuccino::get_side_items()
 
 void Cappuccino::operator=(const Cappuccino& cap)
 {   
+    // unlike operator= in EspressoBased class we need
+    // to implement this opertor in this class to have
+    // drinks with same side_items
     if(this == &cap)
         return;
     else

@@ -1,5 +1,8 @@
 #include "mocha.h"
 
+// implementing this class is same ass Cappuccino class
+// they just have minor difference in their ingredients
+
 Mocha::Mocha()
 :EspressoBased()
 ,side_items{}

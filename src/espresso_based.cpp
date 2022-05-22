@@ -21,6 +21,10 @@ EspressoBased::EspressoBased(const EspressoBased& esp)
 :ingredients{}
 ,name{esp.name}
 {   
+    // because we need to make a new object in memory 
+    // and push it's pointer ingredeints we have no choice
+    // but using conditions to identify ingredients and
+    // push them in ingredients
     for(const auto& i : esp.ingredients)
     {
         if (i->get_name()=="Cinnamon")
@@ -51,11 +55,18 @@ EspressoBased::EspressoBased(const EspressoBased& esp)
 
 void EspressoBased::operator= (EspressoBased& esp)
 {
-
+    // we don't need this operator in espressobased class 
+    // because coffees that we use operator= on them have
+    // the same type so have the same ingredients so we are 
+    // fine even if we don't define this operator for this class
 }
 
 void EspressoBased::brew()
 {   
+    // this member function implemented using FTXUI library
+    // the proccess of making coffee showed by displaying
+    // how ingredients added to our coffee
+    
     using namespace std::chrono_literals;
     int index{0};
     auto title = ftxui::vbox({

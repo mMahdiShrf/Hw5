@@ -6,12 +6,13 @@
 #include "sub_ingredients.h"
 
 
-class Cappuccino : public EspressoBased
+
+class Cappuccino : public EspressoBased // this coffee is drived from EspressoBased Class
 {
 public:
     Cappuccino();
     Cappuccino(const Cappuccino& cap);
-	virtual ~Cappuccino();
+	virtual ~Cappuccino(); // for late bining
     void operator=(const Cappuccino& cap);
 
     virtual std::string get_name();

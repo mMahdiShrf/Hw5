@@ -6,7 +6,7 @@
 #include "sub_ingredients.h"
 
 
-class Mocha : public EspressoBased
+class Mocha : public EspressoBased // this coffee is drived from EspressoBased class
 {
 public:
     Mocha();
