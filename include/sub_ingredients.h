@@ -4,18 +4,18 @@
 #include <iostream>
 #include "ingredient.h"
 
-// using define to avoid code copy 
+// to avoid code copy we used #define in our code
 #define DEFCLASS(drived_class_name,price_unit)\
 class drived_class_name: public Ingredient\
 { \
     public:\
-    drived_class_name(size_t units) : Ingredient{price_unit, units}\ // sub_ingredeint drived from Ingredient
+    drived_class_name(size_t units) : Ingredient{price_unit, units}\
     {\
         this->name = #drived_class_name;\
     }\
     virtual std::string get_name() {return this->name;}\
 };
-// defining Ingredients that we want using our defined class
+
 DEFCLASS(Cinnamon, 5);
 DEFCLASS(Chocolate, 5);
 DEFCLASS(Sugar, 1);

@@ -55,10 +55,35 @@ EspressoBased::EspressoBased(const EspressoBased& esp)
 
 void EspressoBased::operator= (EspressoBased& esp)
 {
-    // we don't need this operator in espressobased class 
-    // because coffees that we use operator= on them have
-    // the same type so have the same ingredients so we are 
-    // fine even if we don't define this operator for this class
+    for(const auto& i : ingredients)
+    delete i;
+    ingredients.clear();
+    name = esp.name;
+        for(const auto& i : esp.ingredients)
+    {
+        if (i->get_name()=="Cinnamon")
+            ingredients.push_back(new Cinnamon{i->get_units()});
+        if (i->get_name()=="Chocolate")
+            ingredients.push_back(new Chocolate{i->get_units()});
+
+        if (i->get_name()=="Sugar")
+            ingredients.push_back(new Sugar{i->get_units()});
+
+        if (i->get_name()=="Cookie")
+            ingredients.push_back(new Cookie{i->get_units()});
+
+        if (i->get_name()=="Espresso")
+            ingredients.push_back(new Espresso{i->get_units()});
+
+        if (i->get_name()=="Milk")
+            ingredients.push_back(new Milk{i->get_units()});
+        
+        if (i->get_name()=="MilkFoam")
+            ingredients.push_back(new MilkFoam{i->get_units()});
+
+        if (i->get_name()=="Water")
+            ingredients.push_back(new Water{i->get_units()});
+    }
 }
 
 void EspressoBased::brew()
@@ -83,9 +108,10 @@ void EspressoBased::brew()
         index++;
         ftxui::Element document =
             ftxui::hbox({
-            ftxui::text(std::to_string(index)+"." + "brewing "+
-            i->get_name() + " for " +
-            std::to_string(i->get_units()) + " units"
+            ftxui::text(std::to_string(index)+"." + "adding " + 
+            std::to_string(i->get_units()) 
+            + " units" " of " +
+            i->get_name()
             ) | ftxui::border | ftxui::color(ftxui::Color::MagentaLight)
             });
 
@@ -109,7 +135,7 @@ void EspressoBased::brew()
             std::cout << reset_position;
             gauge_screen.Print();
             reset_position = gauge_screen.ResetPosition();
-            std::this_thread::sleep_for(i->get_units()*0.01s);
+            std::this_thread::sleep_for(i->get_units()*0.02s);
         }
         std::cout << std::endl;
     }
